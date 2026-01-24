@@ -1,0 +1,48 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+// NOTE: Duplicated styles for component independence
+const cardStyle = { padding: '20px', margin: '15px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)', flex: '1 1 200px', textAlign: 'left' };
+const dashboardStyle = { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px', maxWidth: '1200px', margin: '0 auto' };
+
+const CustomerDashboard = () => (
+  <>
+    {/* Profile Link (FIXED: Positioned at top 20px) */}
+    <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 10 }}>
+        <Link to="/profile" style={{ 
+            padding: '10px 15px', 
+            backgroundColor: '#6c757d', 
+            color: 'white', 
+            textDecoration: 'none', 
+            borderRadius: '5px',
+            fontSize: '14px',
+            fontWeight: 'bold'
+        }}>
+            View Profile
+        </Link>
+    </div>
+    
+    {/* FIXED: Added marginTop to clear the button and create space */}
+    <h2 style={{ color: '#28a745', marginTop: '80px' }}>Customer Dashboard</h2>
+    <div style={dashboardStyle}>
+      <div style={cardStyle}>
+        <h3>Active Shipments</h3>
+        <p style={{ fontSize: '2em', fontWeight: 'bold', color: '#28a745' }}>5</p>
+      </div>
+      <div style={cardStyle}>
+        <h3>Latest Delivery Status</h3>
+        <p style={{ fontSize: '1.5em', fontWeight: 'bold', color: '#ffc107' }}>In Transit (ETA: Tomorrow)</p>
+      </div>
+      <div style={cardStyle}>
+        <h3>Total Orders YTD</h3>
+        <p style={{ fontSize: '2em', fontWeight: 'bold', color: '#007bff' }}>48</p>
+      </div>
+      <div style={cardStyle}>
+        <h3>New Quote Request</h3>
+        <p style={{ fontSize: '2em', fontWeight: 'bold', color: '#333' }}>2</p>
+      </div>
+    </div>
+  </>
+);
+
+export default CustomerDashboard;
